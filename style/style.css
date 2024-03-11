@@ -31,7 +31,14 @@ body,html {
 }
 
 #home {
-    position: relative;
+   
+}
+#model canvas{
+    width: 10rem;
+    height:10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #heading {
@@ -51,78 +58,68 @@ body,html {
     margin-left: 23rem;
 }
 
-#light {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    pointer-events: none;
-    display: none;
-    background: radial-gradient(circle at var(--x) var(--y), transparent 10%, #01020cda 20%);
+#about {
+    background: #013459;
+    height: 170%;
 }
 
-#body #light {
-    display: block;
-}
-
-#about-heading {
-    font-size: 5rem;
-    font-family: "Montserrat", sans-serif;
-    text-align: left;
-    font-weight: 400;
-    padding-top: 5rem;
-    margin-left: 5rem;
-}
 
 #description {
     font-family: "Poppins", sans-serif;
     margin-left: 5rem;
     font-size: 1.5rem;
     width: 45rem;
-    margin-top: 3rem;
+    margin-top: 8rem;
 }
 
 #pyrodescription {
     font-family: "Poppins", sans-serif;
-    margin-left: 5rem;
+    margin-right: 5rem;
     font-size: 1.5rem;
-    width: 40rem;
-    margin-top: 3rem;
+    width: 42rem;
+    margin-top: 8rem;
+    float:right;
 }
 
 
-.container {
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
-    margin-left: 5rem;
-    margin-top: 1rem;
-}
-
-.opt {
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-.active {
-    color: #0072cf;
-}
 
 #ordinimage {
     float: right;
     margin-right: 2rem;
-    margin-top: -20rem;
-    width: 25rem;
-}
-#pyroimage {
-    float: right;
-    margin-right: 2rem;
-    margin-top: -20rem;
+    margin-top: -18rem;
     width: 25rem;
     
 }
 
+
+
+#pyroimage {
+    float: left;
+    margin-left: 2rem;
+    width: 20rem;
+    margin-top: 3rem;
+}
+
+#stars {
+    margin-left: -26rem;
+}
+
+#starline {
+    margin-top: 10rem;
+    margin-left: 18rem;
+}
+
+.active {
+    background: -webkit-linear-gradient(0deg, rgba(255,0,236,1) 0%, rgba(73,25,220,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#grad {
+    background: -webkit-linear-gradient(0deg, rgba(255,0,236,1) 0%, rgba(73,25,220,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 #heading-events {
     font-size: 5rem;
@@ -260,35 +257,17 @@ body,html {
     margin-right: 5rem;
 }
 
-.carousel-container {
-    width: 80%;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-    margin-left: 10rem;
-    margin-top: 2rem;
-}
-.carousel {
+.container {
     display: flex;
-    transition: transform 0.5s ease;
+    gap: 2rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    margin-left: 2rem;
 }
-.carousel-item {
-    flex: 0 0 33.33%; /* Display 3 items at a time */
-    padding: 10px;
-    box-sizing: border-box;
-}
-.carousel-item img {
-    max-width: 100%;
-    height: auto;
-}
-.carousel-item-alu {
-    flex: 0 0 33.33%; /* Display 3 items at a time */
-    padding: 10px;
-    box-sizing: border-box;
-}
-.carousel-item-alu img {
-    max-width: 100%;
-    height: auto;
+
+.opt {
+    cursor: pointer;
+    transition: all 200ms ease;
 }
 
 .btn {
@@ -299,48 +278,6 @@ body,html {
     border: none;
     border-radius: 5px;
     margin-top: 20px;
-}
-.carousel-item img {
-    width: 200px; 
-    height: 200px; 
-    border-radius: 50%; 
-    object-fit: cover; 
-}
-.carousel-item {
-    text-align: center; /* Center align text */
-}
-
-.carousel-item h2 {
-    font-size: 2rem; /* Adjust font size as needed */
-    line-height: 1.5; /* Adjust line height as needed */
-    margin: 10px 0; /* Add some margin for spacing */
-}
-
-.carousel-item p {
-    font-size: 1.2rem; /* Adjust font size as needed */
-    line-height: 1.5; /* Adjust line height as needed */
-    margin: 10px 0; /* Add some margin for spacing */
-}
-.carousel-item-alu img {
-    width: 200px; 
-    height: 200px; 
-    border-radius: 50%; 
-    object-fit: cover; 
-}
-.carousel-item-alu {
-    text-align: center; /* Center align text */
-}
-
-.carousel-item-alu h2 {
-    font-size: 2rem; /* Adjust font size as needed */
-    line-height: 1.5; /* Adjust line height as needed */
-    margin: 10px 0; /* Add some margin for spacing */
-}
-
-.carousel-item-alu p {
-    font-size: 1.2rem; /* Adjust font size as needed */
-    line-height: 1.5; /* Adjust line height as needed */
-    margin: 10px 0; /* Add some margin for spacing */
 }
 
 .control {
@@ -355,4 +292,65 @@ body,html {
     display: flex;
     justify-content: center;
     gap: 1rem;
+}
+
+@media screen and (min-width: 1300px){
+    #about {
+        height: 140%;
+    }
+    #starline {
+        margin-left: 19rem;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    #about {
+        height: 100%;
+    }
+    #description {
+        font-family: "Poppins", sans-serif;
+        margin-left: 15rem;
+        font-size: 1.7rem;
+        width: 45rem;
+        margin-top: 10rem;
+    }
+    
+    #pyrodescription {
+        font-family: "Poppins", sans-serif;
+        margin-right: 20rem;
+        font-size: 1.7rem;
+        width: 42rem;
+        margin-top: 8rem;
+        float:right;
+    }
+    
+    
+    
+    #ordinimage {
+        float: right;
+        margin-right: 20rem;
+        margin-top: -22rem;
+        width: 30rem;
+        
+    }
+    
+    
+    
+    #pyroimage {
+        float: left;
+        margin-left: 4rem;
+        width: 20rem;
+        margin-top: 3rem;
+    }
+    
+    #stars {
+        margin-left: -26rem;
+    }
+    
+    #starline {
+        margin-top: 10rem;
+        margin-left: 30rem;
+    }
+    
+    
 }

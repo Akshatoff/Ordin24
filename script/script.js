@@ -1,9 +1,3 @@
-const ordin = document.getElementById("ordin");
-const pyro = document.getElementById("pyro");
-const ordindescription = document.getElementById("description");
-const pyrodescription = document.getElementById("pyrodescription");
-const ordinimage = document.getElementById("ordinimage");
-const pyroimage = document.getElementById("pyroimage");
 const sun = document.getElementById("sun");
 const sunanim = document.getElementById("sun-anim");
 const build = document.getElementById("build");
@@ -12,8 +6,7 @@ const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const mem = document.getElementById("mem");
 const alu = document.getElementById("alu");
-const alucarousel =  document.getElementById("aluc");
-const memcarousel = document.getElementById("memc");
+
 const control = document.querySelector(".control");
 const controlalu = document.querySelector(".controlalu");
 let currentIndex = 0;
@@ -61,45 +54,18 @@ let currentIndexalu = 0;
     }
 
 window.addEventListener("DOMContentLoaded", function (){
-    ordin.classList.add("active");
-    fadein2(ordindescription);
-    pyrodescription.style.display = "none";
-    ordinimage.style.display = "block";
-    pyroimage.style.display = "none";
+
     anim.style.display = "none";
     mem.classList.add("active");
-    memcarousel.style.display = "block";
-    alucarousel.style.display = "none";
     control.style.display = "flex";
     controlalu.style.display = "none";
 
-ordin.addEventListener("click", function () {
-    ordin.classList.add("active");
-    pyro.classList.remove("active");
-    fadeout(pyrodescription);
-    fadeout(pyroimage);
-    fadein1(ordinimage);
-    fadein2(ordindescription);
-    ordinimage.style.display = "block";
-    pyroimage.style.display = "none";
-})
 
-pyro.addEventListener("click", function() {
-    ordin.classList.remove("active");
-    pyro.classList.add("active");
-    fadeout(ordindescription);
-    fadeout(ordinimage);
-    fadein2(pyroimage);
-    fadein1(pyrodescription);
-    ordinimage.style.display = "none";
-    pyroimage.style.display = "block";
-})
+
 
 mem.addEventListener("click", function() {
     mem.classList.add("active");
     alu.classList.remove("active");
-    memcarousel.style.display = "block";
-    alucarousel.style.display = "none";
     control.style.display = "flex";
     controlalu.style.display = "none";
 })
@@ -107,19 +73,9 @@ mem.addEventListener("click", function() {
 alu.addEventListener("click", function() {
     mem.classList.remove("active");
     alu.classList.add("active");
-    memcarousel.style.display = "none";
-    alucarousel.style.display = "block";
     control.style.display = "none";
     controlalu.style.display = "flex";
 })
-
-var pos = document.documentElement;
-pos.addEventListener("mousemove", e=> {
-    pos.style.setProperty("--x", e.clientX + "px");
-    pos.style.setProperty("--y", e.clientY + "px");
-
-})
-
 })
 
 function fadein1(element) {

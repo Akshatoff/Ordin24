@@ -5,29 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ordinatrix</title>
     <link rel="stylesheet" href="./style/style.css">
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.162.0/examples/jsm/"
+          }
+        }
+      </script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1"></script>
 </head>
 <body id="body">
     <div class="section" id="home">
-        <div class="images">
-        <img src="./assets/main.png" alt="Dand" class="image" id="db">
+        <div id="model">
+        
         
     </div>
-        <div id="light"></div>
+        
         <h1 class="text" id="heading">Ordinatrix 24.0</h1>
     </div>
     <div class="section" id="about">
-        <h1 class="text" id="about-heading">About Us</h1>
-        <div class="container">
-            <h2 class="text opt" id="ordin">Ordin@trix</h2>
-            <h2 class="text opt" id="pyro">Pyrotech</h2>
-        </div>
-        <h2 class="text" id="description">It all started 19 years ago. A fusion of creativity, talent and skill is what Ordin@trix is all about. Ordin@trix has evolved through the years moving from an interschool festival at the state level to an international event. Over the years we have had students from China, Muscat, Japan and other countries as regular participants.
-        </h2>
-        <h2 class="text" id="pyrodescription">PYROTECH members are an elite team of student computer enthusiasts. They have represented the school in various competitions and won laurels in events such as web designing, software development, image editing, movie making, 3-D modelling, Robotics, photography and others.
+
+        <h2 class="text" id="description">It all started 19 years ago. A fusion of creativity, talent and skill is what <span id="grad">Ordin@trix</span> is all about. Ordin@trix has evolved through the years moving from an interschool festival at the state level to an international event. Over the years we have had students from China, Muscat, Japan and other countries as regular participants.
         </h2>
         <img src="./assets/dandabanda1.png" alt="" class="image" id="ordinimage">
-        <img src="./assets/pyrologo.png" alt="" class="image" id="pyroimage">
+       <div id="starline">
+        <svg id="line"width="746" height="11" viewBox="0 0 746 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.6" d="M0.666678 5.5056C0.663631 2.56008 3.04897 0.169801 5.99449 0.166754C8.94001 0.163707 11.3303 2.54905 11.3333 5.49457C11.3364 8.44008 8.95104 10.8304 6.00553 10.8334C3.06001 10.8365 0.669724 8.45112 0.666678 5.5056ZM734.667 5.50553C734.664 2.56001 737.049 0.169729 739.995 0.166682C742.94 0.163635 745.331 2.54898 745.334 5.4945C745.337 8.44001 742.951 10.8303 740.006 10.8333C737.06 10.8364 734.67 8.45105 734.667 5.50553ZM6.00001 4.50008L305 4.50004L305 6.50004L6.00001 6.50008L6.00001 4.50008ZM441 4.50005L740 4.50001L740 6.50001L441 6.50005L441 4.50005Z" fill="#fff"/>
+            </svg>
+        <svg id="stars"width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.0005 0L13.5825 8.2918H21.9377L15.1782 13.4164L17.7601 21.7082L11.0005 16.5836L4.24102 21.7082L6.82293 13.4164L0.0633993 8.2918H8.41864L11.0005 0Z" fill="#FFB800"/>
+            </svg>
+            
+        <svg id="stars1"width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.0005 0L24.6031 15.2016H39.4972L27.4476 24.5967L32.0501 39.7984L20.0005 30.4033L7.95095 39.7984L12.5535 24.5967L0.503891 15.2016H15.398L20.0005 0Z" fill="#FFE500"/>
+            </svg>
+            <svg id="stars2" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.0005 0L13.5825 8.2918H21.9377L15.1782 13.4164L17.7601 21.7082L11.0005 16.5836L4.24102 21.7082L6.82293 13.4164L0.0633993 8.2918H8.41864L11.0005 0Z" fill="#FFB800"/>
+                </svg>
+            </div>
+            <h2 class="text" id="pyrodescription"><span id="grad">PYROTECH</span> members are an elite team of student computer enthusiasts. They have represented the school in various competitions and won laurels in events such as web designing, software development, image editing, movie making, 3-D modelling, Robotics, photography and others.
+            </h2>
+            <img src="./assets/pyrologo.png" alt="" class="image" id="pyroimage">
+       
     </div>
     <div class="section" id="events">
         <h1 class="text" id="heading-events">Events</h1>
@@ -56,80 +76,7 @@
             <h2 class="text opt" id="mem">Members</h2>
             <h2 class="text opt" id="alu">Alumnis</h2>
         </div>
-        <div class="carousel-container" id="memc">
-            <div class="carousel">
-                <div class="carousel-item">
-                    <img src="./assets/reyansh.jpg" alt="Team Member 1">
-                    <h2 class="text">Reyansh </h2>
-                    <p class="text">President of Pyrotech Club</p>
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/tanveer.jpeg" alt="Team Member 2">
-                    <h2 class="text">Tanveer</h2>
-                    <p class="text">Description of Tanveer</p>
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/angad.jpeg" alt="Team Member 3">
-                    <h2 class="text">Angad</h2>
-                    <p class="text">Description of team member 3</p>
-                </div>
-                <!-- Add more carousel items here -->
-                <!-- For demonstration, duplicate the above three items -->
-                <div class="carousel-item">
-                    <img src="./assets/kashyap.png" alt="Team Member 1">
-                    <h2 class="text">Arnav Kashyap</h2>
-                    <p class="text">Description of team member 1</p>
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/Nadal.jpg" alt="Team Member 2">
-                    <h2 class="text">AR Nadal Verma</h2>
-                    <p class="text">Description of team member 2</p>
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/dandabanda1.png" alt="Team Member 3">
-                    <h2 class="text">Team Member 3</h2>
-                    <p class="text">Description of team member 3</p>
-                </div>
-                <!-- Repeat the pattern for the remaining items -->
-            </div>
-        </div>
-        <div class="carousel-container" id="aluc">
-            <div class="carousel">
-                <div class="carousel-item-alu">
-                    <img src="./assets/pyrologo.png" alt="Team Member 1">
-                    <h2 class="text">Naman Chandok</h2>
-                    <p class="text">President of Pyrotech Club</p>
-                </div>
-                <div class="carousel-item-alu">
-                    <img src="./tanveer.jpeg" alt="Team Member 2">
-                    <h2 class="text">Shaivi</h2>
-                    <p class="text">Description of Tanveer</p>
-                </div>
-                <div class="carousel-item-alu">
-                    <img src="./angad.jpeg" alt="Team Member 3">
-                    <h2 class="text">Utkarsh</h2>
-                    <p class="text">Description of team member 3</p>
-                </div>
-                <!-- Add more carousel items here -->
-                <!-- For demonstration, duplicate the above three items -->
-                <div class="carousel-item-alu">
-                    <img src="./kashyap.png" alt="Team Member 1">
-                    <h2 class="text">Shiven</h2>
-                    <p class="text">Description of team member 1</p>
-                </div>
-                <div class="carousel-item-alu">
-                    <img src="./Nadal.jpg" alt="Team Member 2">
-                    <h2 class="text">Navya</h2>
-                    <p class="text">Description of team member 2</p>
-                </div>
-                <div class="carousel-item-alu">
-                    <img src="./dandabanda1.png" alt="Team Member 3">
-                    <h2 class="text">Team Member 3</h2>
-                    <p class="text">Description of team member 3</p>
-                </div>
-                <!-- Repeat the pattern for the remaining items -->
-            </div>
-        </div>
+        
         
         <div class="control">
             <ion-icon class='btn prev' name="arrow-back-outline" id="prev1" onclick="prev1()"></ion-icon>
@@ -144,6 +91,6 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-    <script src="./script/script.js"></script>
+    <script type="module" src="./script/script.js"></script>
 </body>
 </html>
