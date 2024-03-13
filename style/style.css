@@ -89,6 +89,7 @@ model-viewer {
     font-size: 1.5rem;
     width: 30rem;
     margin-top: -7rem;
+    opacity: 0;
     float:right;
 }
 
@@ -132,6 +133,10 @@ model-viewer {
     -webkit-text-fill-color: transparent;
 }
 
+#events {
+    height: 200%;
+}
+
 #heading-events {
     font-size: 5rem;
     font-family: "Montserrat", sans-serif;
@@ -140,123 +145,81 @@ model-viewer {
     padding-top: 1rem;
     margin-left: 5rem;
 }
-
-.main {
-    margin-top: -2rem;
-    margin-left: 1.5rem;
+.card-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5rem;
+    margin-top: 2rem;
+    gap: 2rem;
 }
 
-#build-title {
-    font-size: 4rem;
-    text-align: left;
-    font-family: 'Noto Sans', sans-serif;
-    padding-top: 12rem;
-    margin-left: 2rem;
-    letter-spacing: 2px;
+#card {
+    border: 2px solid #b4b4b4;
+    display: flex;
+    flex-direction: column;
+    width: 75rem;
+    height: 8rem;
+    border-radius: 20px;
+    position: relative; /* Add position relative */
 }
 
-#build-sub {
-    width: 23rem;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    color: #979797;
-    margin-left: 2rem;
-}
-
-#sun {
-    background-color: #FD8520;
-    width: 500px;
-    height: 250px;
-    border-top-left-radius: 260px;  
-    border-top-right-radius: 260px;
-    margin-left: 25rem;
-    margin-top: -15rem;
-    position: relative;
-    
-   
-    
-}
-
-#sun::before {
-    
-    content: "";
-    background-color: #1A1910;
-    width: 700px;
-    height: 350px;
-    border-top-left-radius: 360px;  
-    border-top-right-radius: 360px;
-    position: absolute;
-    z-index: -1;
-    top: -100px;
-    left: -100px;
-  
-}
-
-#sun-anim {
-    background-color: rgb(230,81,41);
-    width: 500px;
-    height: 250px;
-    border-top-left-radius: 260px;  
-    border-top-right-radius: 260px;
-    margin-left: 25rem;
-    margin-top: -15rem;
-    position: relative;
-}
-
-#sun-anim::before {
-    content: "";
-    background-color: #1C1512;
-    width: 700px;
-    height: 350px;
-    border-top-left-radius: 360px;  
-    border-top-right-radius: 360px;
-    position: absolute;
-    z-index: -1;
-    top: -100px;
-    left: -100px;
-}
-
-#build-image {
-    margin-top: -15rem;
-    width: 15rem;
-    margin-left: 55rem;
-    position: relative;
+#card-video{
+    position: absolute; 
+    top: 0; left:0;
+    width: 75rem; height: 8rem;
     z-index: 1;
-    animation: spin 5s infinite;
+}
+.content {
+    z-index: 1; /* Ensure content appears above the video */
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Distribute items along the main axis */
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    width: 100%; /* Ensure content takes up full width */
 }
 
-.nav {
-    position: relative;
-    width: 8rem;
-    margin-left: 40rem;
-    transform: translateX(-50%);
-    z-index: 5;
-    user-select: none;
-
-    & .btn {
-        background-color: rgba(255, 255, 255, 0.5);
-        color: rgba(0, 0, 0, 0.7);
-        border: 2px solid rgba(0, 0, 0, 0.6);
-        margin: 0 0.25rem;
-        padding: 0.75rem;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 6;
-        position: relative;
-
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-    }
+#card-head {
+    font-size: 2rem;
+    font-family: "Poppins", sans-serif;
+    text-align: left;
+    font-weight: 400;
+    width: 5rem;
+    margin-top: -1rem;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+#card-d {
+    
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-weight: 100;
+    color: #979797;
+   margin-left: 4rem;
+    width: 25rem;
+}
+
+.btn.visit {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #b4b4b4;
+    border-radius: 40px;
+    padding: 0.5rem 4rem;
+    cursor: pointer;
+    border: 2px solid #fff;
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+    transition: all 200ms ease-in-out;
+    margin-top: -1rem;
+}
+
+.visit:hover {
+    background-color:transparent;
+    color: #fff;
+
 }
 
 #heading-team {

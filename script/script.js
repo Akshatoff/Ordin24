@@ -1,15 +1,11 @@
 const description = document.getElementById("description");
 const pyrode = document.getElementById("pyrodescription")
-const sun = document.getElementById("sun");
-const sunanim = document.getElementById("sun-anim");
-const build = document.getElementById("build");
-const anim = document.getElementById("anim");
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
 const mem = document.getElementById("mem");
 const alu = document.getElementById("alu");
 const control = document.querySelector(".control");
 const controlalu = document.querySelector(".controlalu");
+const card = document.getElementById("card");
+const video = document.getElementById("card-video");
 let currentIndex = 0;
 let currentIndexalu = 0;
 const items = document.querySelectorAll('.carousel-item');
@@ -118,9 +114,9 @@ let tl = gsap.timeline({
     
 window.addEventListener("DOMContentLoaded", function (){
 
-    
+    video.pause();
 
-    anim.style.display = "none";
+    
     mem.classList.add("active");
     control.style.display = "flex";
     controlalu.style.display = "none";
@@ -188,24 +184,6 @@ function fadeout(element) {
       }
   });
 }
-next.addEventListener("click", function() {
-  expand(sun);
-  setTimeout(() => {
-    fadeout(build);
-    fadein6(anim);
-    
-  }, 400);
- 
-});
-
-prev.addEventListener("click", function() {
-    expand(sunanim);
-    setTimeout(() => {
-      fadeout(anim);
-      fadein6(build);
-     
-    }, 400);
-});
 
 
 
@@ -245,6 +223,12 @@ tl.to(modelviewer, {
   
 });
 
+card.addEventListener("mouseenter", function() {
+    video.play();
+});
+card.addEventListener("mouseleave", function() {
+    video.pause();
+});
 
 //Smooth Scroll
 
