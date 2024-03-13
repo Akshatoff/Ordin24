@@ -1,3 +1,5 @@
+const description = document.getElementById("description");
+const pyrode = document.getElementById("pyrodescription")
 const sun = document.getElementById("sun");
 const sunanim = document.getElementById("sun-anim");
 const build = document.getElementById("build");
@@ -6,13 +8,73 @@ const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const mem = document.getElementById("mem");
 const alu = document.getElementById("alu");
-
 const control = document.querySelector(".control");
 const controlalu = document.querySelector(".controlalu");
 let currentIndex = 0;
 let currentIndexalu = 0;
-    const items = document.querySelectorAll('.carousel-item');
-    const itemsalu = document.querySelectorAll('.carousel-item-alu');
+const items = document.querySelectorAll('.carousel-item');
+const itemsalu = document.querySelectorAll('.carousel-item-alu');
+const modelviewer = document.querySelector("model-viewer");
+const maxRotationspeed = 20;
+const rotationMultiplier = 1;
+const scrollStopDelay = 100;
+
+let currentRotationSpeed = 0;
+let previousScrollPosition = window.scrollY;
+let isScrolling = false;
+let scrollStopTimeout;
+
+function stopRotation() {
+    isScrolling = true;
+    clearTimeout(scrollStopTimeout);
+    scrollStopTimeout =  setTimeout(() => {
+        isScrolling = false;
+    }, scrollStopDelay);
+}
+
+window.addEventListener("scroll", ()=> {
+    
+    if (previousScrollPosition != 668) {
+        const scrollPosition = window.scrollY;
+
+    if (isScrolling) {
+        stopRotation();
+        return;
+    }
+
+    const scrollDifference = previousScrollPosition - scrollPosition;
+    currentRotationSpeed = Math.abs(scrollDifference) * rotationMultiplier;
+
+    if (currentRotationSpeed > maxRotationspeed) {
+        currentRotationSpeed = maxRotationspeed * Math.sign(currentRotationSpeed);        
+    }
+
+    const ScrollDirection = scrollDifference >= 0 ? -1: 1;
+    const currentRotation = parseFloat(modelviewer.cameraOrbit);
+    const newRotation = currentRotation + (currentRotationSpeed * ScrollDirection);
+
+    modelviewer.cameraOrbit = `${newRotation}deg`;
+    previousScrollPosition = scrollPosition;
+    console.log(previousScrollPosition);
+    }
+    else {
+        currentRotationSpeed = 0;
+        setTimeout(() => {
+            fadein1(description);
+            fadein2(pyrode);
+        }, 500);
+    }
+});
+
+let tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: modelviewer,
+        start: "-5% left",
+        end: "250% center",
+        scrub: true,
+        markers: false
+    }
+});
 
     function next1() {
         currentIndex = (currentIndex + 3) % items.length;
@@ -53,7 +115,10 @@ let currentIndexalu = 0;
         }
     }
 
+    
 window.addEventListener("DOMContentLoaded", function (){
+
+    
 
     anim.style.display = "none";
     mem.classList.add("active");
@@ -78,15 +143,17 @@ alu.addEventListener("click", function() {
 })
 })
 
+
+
 function fadein1(element) {
   const timeline = anime.timeline({
       easing: "easeOutExpo",
-      duration:2000,
+      duration:1000,
   });
   timeline.add({
       targets: element,
       opacity: [0, 1],
-      translateX:["-10rem", "0rem"],
+      translateX:["-15rem", "0rem"],
       begin: function () {
           element.style.display = "block";
       }
@@ -96,7 +163,7 @@ function fadein1(element) {
 function fadein2(element) {
   const timeline = anime.timeline({
       easing: "easeOutExpo",
-      duration:2000,
+      duration:1000,
   });
   timeline.add({
       targets: element,
@@ -172,17 +239,23 @@ function expand(element) {
   }, 2500);
 }
 
+tl.to(modelviewer, {
+    x: 500,
+    y: 980,
+  
+});
 
 
 //Smooth Scroll
 
-const lenis = new Lenis()
+const lenis = new Lenis();
 
 
 
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
+lenis.on('scroll', ScrollTrigger.update);
 
-requestAnimationFrame(raf)
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
