@@ -157,7 +157,7 @@ model-viewer {
     border: 2px solid #b4b4b4;
     display: flex;
     flex-direction: column;
-    width: 75rem;
+    width: 61rem;
     height: 8rem;
     border-radius: 20px;
     position: relative; /* Add position relative */
@@ -166,8 +166,12 @@ model-viewer {
 #card-video{
     position: absolute; 
     top: 0; left:0;
-    width: 75rem; height: 8rem;
+    width: 100%; height: 100%;
     z-index: 1;
+}
+
+video {
+    border-radius: 20px;
 }
 .content {
     z-index: 1; /* Ensure content appears above the video */

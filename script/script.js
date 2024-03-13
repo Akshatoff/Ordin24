@@ -4,8 +4,8 @@ const mem = document.getElementById("mem");
 const alu = document.getElementById("alu");
 const control = document.querySelector(".control");
 const controlalu = document.querySelector(".controlalu");
-const card = document.getElementById("card");
-const video = document.getElementById("card-video");
+const cards = document.querySelectorAll(".card");
+const videos = document.querySelectorAll(".card-video");
 let currentIndex = 0;
 let currentIndexalu = 0;
 const items = document.querySelectorAll('.carousel-item');
@@ -223,12 +223,20 @@ tl.to(modelviewer, {
   
 });
 
-card.addEventListener("mouseenter", function() {
-    video.play();
-});
-card.addEventListener("mouseleave", function() {
-    video.pause();
-});
+cards.forEach((card, index) => {
+    card.addEventListener("mouseenter", function() {
+        videos.forEach((video, i) => {
+            if (i !== index) {
+                video.pause();
+            }
+        });
+
+        videos[index].play();
+    });
+
+  
+})
+
 
 //Smooth Scroll
 
