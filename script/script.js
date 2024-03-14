@@ -5,72 +5,17 @@ const alu = document.getElementById("alu");
 const control = document.querySelector(".control");
 const controlalu = document.querySelector(".controlalu");
 const cards = document.querySelectorAll(".card");
-const videos = document.querySelectorAll(".card-video");
+const videos = document.querySelectorAll(".card-video video");
+const init = document.getElementById("init");
+const home = document.getElementById("home");
+const about = document.getElementById("about");
+const events = document.getElementById("events");
+const teams = document.getElementById("team");
 let currentIndex = 0;
 let currentIndexalu = 0;
 const items = document.querySelectorAll('.carousel-item');
 const itemsalu = document.querySelectorAll('.carousel-item-alu');
 const modelviewer = document.querySelector("model-viewer");
-const maxRotationspeed = 20;
-const rotationMultiplier = 1;
-const scrollStopDelay = 100;
-
-let currentRotationSpeed = 0;
-let previousScrollPosition = window.scrollY;
-let isScrolling = false;
-let scrollStopTimeout;
-
-function stopRotation() {
-    isScrolling = true;
-    clearTimeout(scrollStopTimeout);
-    scrollStopTimeout =  setTimeout(() => {
-        isScrolling = false;
-    }, scrollStopDelay);
-}
-
-window.addEventListener("scroll", ()=> {
-    
-    if (previousScrollPosition != 668) {
-        const scrollPosition = window.scrollY;
-
-    if (isScrolling) {
-        stopRotation();
-        return;
-    }
-
-    const scrollDifference = previousScrollPosition - scrollPosition;
-    currentRotationSpeed = Math.abs(scrollDifference) * rotationMultiplier;
-
-    if (currentRotationSpeed > maxRotationspeed) {
-        currentRotationSpeed = maxRotationspeed * Math.sign(currentRotationSpeed);        
-    }
-
-    const ScrollDirection = scrollDifference >= 0 ? -1: 1;
-    const currentRotation = parseFloat(modelviewer.cameraOrbit);
-    const newRotation = currentRotation + (currentRotationSpeed * ScrollDirection);
-
-    modelviewer.cameraOrbit = `${newRotation}deg`;
-    previousScrollPosition = scrollPosition;
-    console.log(previousScrollPosition);
-    }
-    else {
-        currentRotationSpeed = 0;
-        setTimeout(() => {
-            fadein1(description);
-            fadein2(pyrode);
-        }, 500);
-    }
-});
-
-let tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: modelviewer,
-        start: "-5% left",
-        end: "250% center",
-        scrub: true,
-        markers: false
-    }
-});
 
     function next1() {
         currentIndex = (currentIndex + 3) % items.length;
@@ -114,13 +59,13 @@ let tl = gsap.timeline({
     
 window.addEventListener("DOMContentLoaded", function (){
 
-    video.pause();
+    videos.pause();
 
     
     mem.classList.add("active");
     control.style.display = "flex";
     controlalu.style.display = "none";
-
+   
 
 
 
@@ -217,11 +162,7 @@ function expand(element) {
   }, 2500);
 }
 
-tl.to(modelviewer, {
-    x: 500,
-    y: 980,
-  
-});
+
 
 cards.forEach((card, index) => {
     card.addEventListener("mouseenter", function() {
@@ -230,14 +171,63 @@ cards.forEach((card, index) => {
                 video.pause();
             }
         });
-
+        
         videos[index].play();
     });
 
   
 })
 
+window.addEventListener("load", function() {
+    
+    const loaderVideo = document.getElementById("loader-video");
+    const content = document.getElementById("fullpage");
+    content.style.display = "none";
+    events.style.display = "none";
+    teams.style.display = "none";
+    // Listen for the ended event on the loader video
+    loaderVideo.addEventListener("ended", function() {
+        // Hide the loader video
+        loaderVideo.style.display = "none";
+        // Display the website content
+        content.style.display = "block";
+        showSection(home);
+    });
+});
 
+function fadeIn(element) {
+    const timeline = anime.timeline({
+      easing: 'easeOutExpo',
+      duration: 1000,
+    });
+  
+    timeline.add({
+      targets: element,
+      opacity: [0, 1],
+      translateY: [100, 0],
+    });
+  
+    timeline.play();
+  }
+  
+
+  function showSection(section) {
+    const sections = [home, about, events, teams]; // Include all sections here
+    events.style.display = "block";
+    teams.style.display = "block";
+    sections.forEach((s) => {
+      if (s === section) {
+        fadeIn(s);
+        s.style.display = 'block';
+      } else {
+        s.style.display = 'none';
+      }
+    });
+}
+
+  init.addEventListener("click", function() {
+    showSection(about);
+  });
 //Smooth Scroll
 
 const lenis = new Lenis();

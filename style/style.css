@@ -9,14 +9,30 @@
 body,html {
     width: 100%;
     height: 100%;
-    
+    background-color: #040025;
+}
+
+
+#loader-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 9999; /* Ensure it's on top of other content */
+    border-radius: 0;
+}
+
+.fullpage {
+    display: none;
+ 
 }
 
 .section {
     width: 100%;
     height: 100%;
     background-color: #040025;
-    
 }
 
 .text {
@@ -31,6 +47,10 @@ body,html {
 }
 
 
+#home {
+    height: 49rem;
+    
+}
 
 #model {
     object-fit: contain;
@@ -53,34 +73,91 @@ model-viewer {
     float: right;
     width: 10rem;
     margin-right: 40rem;
-    margin-top: -25rem;
+    margin-top: -20rem;
 }
 
-#sub {
-    color: #979797;
-    font-size: 1.2rem;
+video::-internal-media-controls-overlay-cast-button {
+    display: none;
+}
+
+li {
+    --c: goldenrod;
+    color: var(--c);
+    font-size: 1.5rem;
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 16em;
+    height: 4em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3.3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin-top: -8rem;
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    float: right;
-    margin-right: 9rem;
-    width: 40rem;
-    margin-top: -15rem;
+    margin-left: 35rem;
+}
+li span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}li:hover {
+    color: black;
+}
+
+li:hover span {
+    transform: translateY(0) scale(4);
+}
+li span:nth-child(1) {
+    --n: 1;
+}
+
+ li span:nth-child(2) {
+    --n: 2;
+}
+
+ li span:nth-child(3) {
+    --n: 3;
+}
+
+ li span:nth-child(4) {
+    --n: 4;
 }
 
 
 #about {
     background: #013459;
-    height: 170%;
+    height: 50rem;
 }
 
+#heading-about {
+    font-size: 4rem;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-weight: 400;
+
+}
 
 #description {
     font-family: "Poppins", sans-serif;
     margin-left: 2rem;
     font-size: 1.5rem;
     width: 35rem;
-    padding-top: 30rem;
-    opacity: 0;
+    padding-top: 4rem;
+    
+    font-weight: 200;
 }
 
 #pyrodescription {
@@ -88,9 +165,19 @@ model-viewer {
     margin-right: 1rem;
     font-size: 1.5rem;
     width: 30rem;
-    margin-top: -7rem;
-    opacity: 0;
+    margin-top: -13rem;
+
+    font-weight: 200;
     float:right;
+}
+#pyrodescription1 {
+    font-family: "Poppins", sans-serif;
+    margin-right: -30rem;
+    font-size: 1.5rem;
+    width: 30rem;
+    margin-top: -35rem;
+    float:right;
+    font-weight: 200;
 }
 
 
@@ -101,6 +188,7 @@ model-viewer {
     margin-top: -18rem;
     width: 25rem;
     
+    font-weight: 200;
 }
 
 
@@ -134,7 +222,7 @@ model-viewer {
 }
 
 #events {
-    height: 200%;
+    height: 50rem;
 }
 
 #heading-events {
@@ -153,25 +241,26 @@ model-viewer {
     gap: 2rem;
 }
 
-#card {
+.card {
     border: 2px solid #b4b4b4;
     display: flex;
     flex-direction: column;
-    width: 61rem;
+    width: 59rem;
     height: 8rem;
     border-radius: 20px;
     position: relative; /* Add position relative */
 }
 
-#card-video{
-    position: absolute; 
-    top: 0; left:0;
-    width: 100%; height: 100%;
-    z-index: 1;
+.card-container .card:nth-child(even) {
+   margin-left: 15rem;
 }
 
 video {
     border-radius: 20px;
+    position: absolute; 
+    top: 0; left:0;
+    width: 100%; height: 100%;
+    z-index: 1;
 }
 .content {
     z-index: 1; /* Ensure content appears above the video */
@@ -223,6 +312,10 @@ video {
 .visit:hover {
     background-color:transparent;
     color: #fff;
+
+}
+
+#team {
 
 }
 
