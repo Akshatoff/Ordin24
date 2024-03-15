@@ -8,9 +8,7 @@ const cards = document.querySelectorAll(".card");
 const videos = document.querySelectorAll(".card-video video");
 const init = document.getElementById("init");
 const home = document.getElementById("home");
-const about = document.getElementById("about");
-const events = document.getElementById("events");
-const teams = document.getElementById("team");
+const second = document.getElementById("second");
 let currentIndex = 0;
 let currentIndexalu = 0;
 const items = document.querySelectorAll('.carousel-item');
@@ -183,15 +181,14 @@ window.addEventListener("load", function() {
     const loaderVideo = document.getElementById("loader-video");
     const content = document.getElementById("fullpage");
     content.style.display = "none";
-    events.style.display = "none";
-    teams.style.display = "none";
+    
     // Listen for the ended event on the loader video
     loaderVideo.addEventListener("ended", function() {
         // Hide the loader video
         loaderVideo.style.display = "none";
         // Display the website content
         content.style.display = "block";
-        showSection(home);
+       
     });
 });
 
@@ -211,23 +208,24 @@ function fadeIn(element) {
   }
   
 
+
+
   function showSection(section) {
-    const sections = [home, about, events, teams]; // Include all sections here
-    events.style.display = "block";
-    teams.style.display = "block";
-    sections.forEach((s) => {
-      if (s === section) {
-        fadeIn(s);
-        s.style.display = 'block';
-      } else {
-        s.style.display = 'none';
-      }
-    });
+  const sections = [home, section];
+
+  sections.forEach((s) => {
+    if (s === section) {
+      fadeIn(s);
+      s.style.display = 'block';
+    } else {
+      s.style.display = 'none';
+    }
+  });
 }
 
-  init.addEventListener("click", function() {
-    showSection(about);
-  });
+init.addEventListener("click", function() {
+  showSection(second);
+});
 //Smooth Scroll
 
 const lenis = new Lenis();

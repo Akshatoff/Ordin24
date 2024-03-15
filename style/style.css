@@ -80,7 +80,7 @@ video::-internal-media-controls-overlay-cast-button {
     display: none;
 }
 
-li {
+#init {
     --c: goldenrod;
     color: var(--c);
     font-size: 1.5rem;
@@ -102,7 +102,7 @@ li {
     font-family: "Poppins", sans-serif;
     margin-left: 35rem;
 }
-li span {
+#init span {
     position: absolute;
     width: 25%;
     height: 100%;
@@ -113,26 +113,26 @@ li span {
     transition: 0.5s;
     transition-delay: calc((var(--n) - 1) * 0.1s);
     z-index: -1;
-}li:hover {
+}#init:hover {
     color: black;
 }
 
-li:hover span {
+#init:hover span {
     transform: translateY(0) scale(4);
 }
-li span:nth-child(1) {
+#init span:nth-child(1) {
     --n: 1;
 }
 
- li span:nth-child(2) {
+#init span:nth-child(2) {
     --n: 2;
 }
 
- li span:nth-child(3) {
+#init span:nth-child(3) {
     --n: 3;
 }
 
- li span:nth-child(4) {
+#init span:nth-child(4) {
     --n: 4;
 }
 
@@ -222,7 +222,7 @@ li span:nth-child(1) {
 }
 
 #events {
-    height: 50rem;
+    height: 60rem;
 }
 
 #heading-events {
@@ -315,9 +315,7 @@ video {
 
 }
 
-#team {
 
-}
 
 #heading-team {
     font-size: 3rem;
@@ -365,6 +363,54 @@ video {
     gap: 1rem;
 }
 
+.link {
+    text-decoration: none;
+
+}
+#eventbody {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 7.5rem;
+    margin-top: 5rem;
+}
+
+#rect {
+    width: 65rem;
+    height: 15rem;
+    border: 2px solid #fff;
+    border-radius: 20px;
+
+}
+
+.information {
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-weight: 200;
+
+}
+
+.eventcontent {
+    display: flex;
+    flex-direction: column;
+}
+
+#elig {
+    margin-top: 2rem;
+}
+.logo {
+    width: 20%;
+    margin-left: 2rem;
+}
+#rectheading {
+    font-size: 3rem;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-weight: 400;
+    margin-top: -12rem;
+    }
+
 @media screen and (min-width: 1300px){
     #about {
         height: 140%;
@@ -374,6 +420,34 @@ video {
     }
 }
 
+#subtext {
+     font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-weight: 100;
+    width: 60rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.tasks {
+    font-size: 1.7rem;
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    font-weight: 800;
+    margin-top: 1rem;
+}
+
+.list {
+    margin-left: 8rem;
+    margin-bottom: 2rem;
+}
+
+.item {
+    color: white;
+     font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+}
 @media screen and (min-width: 1900px) {
     #about {
         height: 100%;
